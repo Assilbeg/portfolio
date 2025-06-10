@@ -111,7 +111,7 @@ export default function Home() {
           <input
             type="text"
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder="Ex: cinematic woman red aesthetic"
             style={{
@@ -124,8 +124,8 @@ export default function Home() {
               outline: "none",
               transition: "border-color 0.2s ease",
             }}
-            onFocus={(e) => e.target.style.borderColor = "#3245ff"}
-            onBlur={(e) => e.target.style.borderColor = "#e1e5e9"}
+            onFocus={(e: React.FocusEvent<HTMLInputElement>) => e.target.style.borderColor = "#3245ff"}
+            onBlur={(e: React.FocusEvent<HTMLInputElement>) => e.target.style.borderColor = "#e1e5e9"}
           />
           
           <Link
@@ -193,13 +193,13 @@ export default function Home() {
                   transition: "transform 0.2s ease, box-shadow 0.2s ease",
                   cursor: "pointer",
                 }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-4px)";
-                  e.currentTarget.style.boxShadow = "0 8px 25px rgba(0,0,0,0.15)";
+                onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
+                  (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 25px rgba(0,0,0,0.15)";
                 }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
+                onMouseLeave={(e: React.MouseEvent<HTMLDivElement>) => {
+                  (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 4px 12px rgba(0,0,0,0.1)";
                 }}
                 onClick={() => window.open(item.image.url, '_blank')}
               >
@@ -212,8 +212,8 @@ export default function Home() {
                     objectFit: "cover",
                     display: "block"
                   }}
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
+                  onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                    (e.currentTarget as HTMLImageElement).style.display = 'none';
                   }}
                 />
                 {item.text && (
