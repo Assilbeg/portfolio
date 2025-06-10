@@ -182,7 +182,7 @@ export default function Home() {
             gap: "20px",
             marginTop: "20px"
           }}>
-            {images.map((item) => (
+            {images.map((item: CosmosImage) => (
               <Block 
                 key={item.id} 
                 tag="div" 
