@@ -12,6 +12,16 @@ interface CosmosImage {
   ownerName: string | null;
 }
 
+interface CosmosApiResponse {
+  data: {
+    search: {
+      elements: {
+        items: CosmosImage[];
+      };
+    };
+  };
+}
+
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [images, setImages] = useState<CosmosImage[]>([]);
@@ -40,7 +50,7 @@ export default function Home() {
         })
       });
 
-      const data = await response.json();
+      const data = await response.json() as CosmosApiResponse;
       
       if (data.data?.search?.elements?.items) {
         setImages(data.data.search.elements.items);
