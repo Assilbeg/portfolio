@@ -94,7 +94,7 @@ export default function Home() {
                 margin: 0
               }}
             >
-              Recherche d'Images Cosmos.so
+              Recherche d&apos;Images Cosmos.so
             </_Builtin.Block>
           </_Builtin.BlockContainer>
         </_Builtin.Block>
@@ -286,7 +286,7 @@ export default function Home() {
                 Aucune image trouvée
               </_Builtin.Block>
               <_Builtin.Block style={{ fontSize: '14px' }}>
-                Essayez avec d'autres mots-clés
+                Essayez avec d&apos;autres mots-clés
               </_Builtin.Block>
             </_Builtin.Block>
           )}

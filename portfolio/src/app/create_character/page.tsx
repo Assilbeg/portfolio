@@ -13,13 +13,27 @@ interface CharacterData {
   hairColor: string;
 }
 
-const QUESTIONS = [
+interface Option {
+  value: string;
+  label: string;
+  icon?: string;
+  color?: string;
+}
+
+interface Question {
+  id: string;
+  title: string;
+  subtitle: string;
+  options: Option[];
+}
+
+const QUESTIONS: Question[] = [
   {
     id: 'gender',
     title: 'Quel est votre sexe ?',
     subtitle: 'Nous aimerions en savoir plus sur vous ! Aidez-nous à créer des photos parfaites qui vous ressemblent.',
     options: [
-      { value: 'male', label: "L'homme", icon: '♂' },
+      { value: 'male', label: "L&apos;homme", icon: '♂' },
       { value: 'female', label: 'Femme', icon: '♀' },
       { value: 'non-binary', label: 'Non Binaire', icon: '⚧' }
     ]
@@ -27,72 +41,63 @@ const QUESTIONS = [
   {
     id: 'age',
     title: 'Quel âge avez-vous ?',
-    subtitle: 'Nous aimerions en savoir plus sur vous ! Aidez-nous à créer des photos parfaites qui vous ressemblent.',
+    subtitle: 'Cela nous aide à créer des images qui correspondent à votre tranche d\'âge.',
     options: [
-      { value: '18-20', label: '18-20' },
-      { value: '21-24', label: '21-24' },
-      { value: '25-29', label: '25-29' },
-      { value: '30-40', label: '30-40' },
-      { value: '41-50', label: '41-50' },
-      { value: '51-65', label: '51-65' },
-      { value: '65+', label: '65+' }
+      { value: '18-25', label: '18-25 ans' },
+      { value: '26-35', label: '26-35 ans' },
+      { value: '36-45', label: '36-45 ans' },
+      { value: '46-55', label: '46-55 ans' },
+      { value: '56+', label: '56+ ans' }
     ]
   },
   {
     id: 'ethnicity',
     title: 'Quelle est votre origine ethnique ?',
-    subtitle: 'Nous aimerions en savoir plus sur vous ! Aidez-nous à créer des photos parfaites qui vous ressemblent.',
+    subtitle: 'Cette information nous aide à créer des images qui vous ressemblent vraiment.',
     options: [
-      { value: 'caucasian', label: 'Blanc / Caucasien' },
-      { value: 'black', label: "Noirs / d'origine africaine" },
-      { value: 'asian-central', label: 'Asie orientale ou centrale' },
-      { value: 'hispanic', label: "Hispanique, latino, d'origine espagnole" },
-      { value: 'middle-eastern', label: 'Moyen-Orient, Afrique du Nord ou pays arabes' },
-      { value: 'multiracial', label: 'Multiracial' },
-      { value: 'pacific', label: 'Natifs hawaïens ou autres insulaires du Pacifique' },
-      { value: 'south-asian', label: 'Asiatiques du Sud (Indiens, Pakistanais, Bangladais, etc.)' },
-      { value: 'other', label: 'Autres' }
+      { value: 'caucasian', label: 'Caucasien' },
+      { value: 'african', label: 'Africain' },
+      { value: 'asian', label: 'Asiatique' },
+      { value: 'hispanic', label: 'Hispanique' },
+      { value: 'middle-eastern', label: 'Moyen-Oriental' },
+      { value: 'mixed', label: 'Mixte' },
+      { value: 'other', label: 'Autre' }
     ]
   },
   {
     id: 'hairColor',
     title: 'Quelle est la couleur de vos cheveux ?',
-    subtitle: 'Aidez-nous à créer des photos qui vous représentent vraiment. Si votre couleur de cheveux ne correspond pas exactement à l\'une des options, choisissez celle qui s\'en rapproche le plus.',
+    subtitle: 'Sélectionnez la couleur qui correspond le mieux à vos cheveux naturels.',
     options: [
-      { value: 'brown', label: 'Marron', color: '#8B4513' },
-      { value: 'black', label: 'Noir', color: '#000000' },
-      { value: 'blonde', label: 'Blonde', color: '#F4C542' },
+      { value: 'black', label: 'Noir', color: '#2C1810' },
+      { value: 'brown', label: 'Châtain', color: '#8B4513' },
+      { value: 'blonde', label: 'Blond', color: '#FAD5A5' },
+      { value: 'red', label: 'Roux', color: '#B22222' },
       { value: 'gray', label: 'Gris', color: '#808080' },
-      { value: 'auburn', label: 'Auburn', color: '#A52A2A' },
-      { value: 'red', label: 'Rouge', color: '#FF4500' },
-      { value: 'white', label: 'Blanc', color: '#FFFFFF' },
-      { value: 'other', label: 'Autres', color: 'linear-gradient(45deg, #ff0000, #00ff00, #0000ff)' },
-      { value: 'bald', label: 'Chauve', color: 'transparent' }
+      { value: 'white', label: 'Blanc', color: '#F5F5F5' }
     ]
   },
   {
     id: 'hairLength',
     title: 'Quelle est la longueur de vos cheveux ?',
-    subtitle: 'Aidez-nous à créer des photos qui vous représentent vraiment. Si votre longueur de cheveux se situe entre deux options, choisissez celle qui s\'en rapproche le plus.',
-    hasImages: true,
+    subtitle: 'Choisissez la longueur qui correspond à votre coiffure actuelle.',
     options: [
-      { value: 'bald', label: 'Chauve' },
-      { value: 'buzz', label: 'Coupe Buzz' },
-      { value: 'short', label: 'Court' },
-      { value: 'medium', label: 'Longueur moyenne' },
-      { value: 'long', label: 'Longues' }
+      { value: 'very-short', label: 'Très courts' },
+      { value: 'short', label: 'Courts' },
+      { value: 'medium', label: 'Mi-longs' },
+      { value: 'long', label: 'Longs' },
+      { value: 'very-long', label: 'Très longs' }
     ]
   },
   {
     id: 'hairStyle',
     title: 'Quel est votre type de cheveux ?',
-    subtitle: 'Aidez-nous à créer des photos qui vous représentent vraiment. Si votre type de cheveux se situe entre deux options, choisissez celle qui s\'en rapproche le plus.',
-    hasImages: true,
+    subtitle: 'Cette information nous aide à créer des images avec la bonne texture de cheveux.',
     options: [
-      { value: 'straight', label: 'Droit' },
-      { value: 'wavy', label: 'Ondulé' },
-      { value: 'curly', label: "Boucles d'oreilles" },
-      { value: 'dreadlocks', label: 'Dreadlocks' }
+      { value: 'straight', label: 'Lisses' },
+      { value: 'wavy', label: 'Ondulés' },
+      { value: 'curly', label: 'Bouclés' },
+      { value: 'coily', label: 'Crépus' }
     ]
   }
 ];
@@ -100,16 +105,17 @@ const QUESTIONS = [
 export default function CreateCharacter() {
   const [currentStep, setCurrentStep] = useState(0);
   const [characterData, setCharacterData] = useState<CharacterData>({
+    gender: '',
     age: '',
     ethnicity: '',
+    hairColor: '',
     hairLength: '',
-    hairStyle: '',
-    gender: '',
-    hairColor: ''
+    hairStyle: ''
   });
 
   const currentQuestion = QUESTIONS[currentStep];
   const progress = ((currentStep + 1) / QUESTIONS.length) * 100;
+  const isLastStep = currentStep === QUESTIONS.length - 1;
 
   const handleOptionSelect = (value: string) => {
     setCharacterData(prev => ({
@@ -119,13 +125,12 @@ export default function CreateCharacter() {
   };
 
   const handleContinue = () => {
-    if (currentStep < QUESTIONS.length - 1) {
-      setCurrentStep(prev => prev + 1);
-    } else {
-      // Terminer et passer à l'étape suivante (génération d'images)
+    if (isLastStep) {
+      // Generate character and redirect
       console.log('Character data:', characterData);
-      // Ici on pourrait rediriger vers la page de génération d'images ou sauvegarder les données
-      alert('Personnage créé ! Données: ' + JSON.stringify(characterData, null, 2));
+      alert('Personnage créé ! ' + JSON.stringify(characterData, null, 2));
+    } else {
+      setCurrentStep(prev => prev + 1);
     }
   };
 
@@ -139,7 +144,7 @@ export default function CreateCharacter() {
     return characterData[currentQuestion.id as keyof CharacterData];
   };
 
-  const renderOption = (option: any, index: number) => {
+  const renderOption = (option: Option) => {
     const isSelected = getCurrentValue() === option.value;
     
     return (
@@ -346,10 +351,10 @@ export default function CreateCharacter() {
           <_Builtin.Block
             tag="p"
             style={{
-              fontSize: '16px',
+              fontSize: '18px',
               color: '#666',
               marginBottom: '40px',
-              lineHeight: '1.5',
+              lineHeight: '1.4',
               maxWidth: '600px',
               margin: '0 auto 40px auto'
             }}
@@ -357,41 +362,36 @@ export default function CreateCharacter() {
             {currentQuestion.subtitle}
           </_Builtin.Block>
 
-          {/* Options grid */}
+          {/* Options */}
           <_Builtin.Block
             style={{
-              display: 'grid',
-              gridTemplateColumns: currentQuestion.id === 'age' || currentQuestion.id === 'ethnicity' 
-                ? 'repeat(auto-fit, minmax(280px, 1fr))' 
-                : currentQuestion.hasImages 
-                ? 'repeat(auto-fit, minmax(200px, 1fr))'
-                : '1fr',
-              gap: '16px',
-              marginBottom: '40px',
+              maxWidth: '500px',
+              margin: '0 auto 40px auto',
               textAlign: 'left'
             }}
           >
-            {currentQuestion.options.map(renderOption)}
+            {currentQuestion.options.map((option) => renderOption(option))}
           </_Builtin.Block>
 
           {/* Continue button */}
-          <_Builtin.Block
+          <button
             onClick={handleContinue}
+            disabled={!getCurrentValue()}
             style={{
               backgroundColor: getCurrentValue() ? '#FF6B35' : '#ccc',
               color: 'white',
-              padding: '16px 48px',
+              padding: '16px 32px',
+              border: 'none',
               borderRadius: '8px',
-              fontSize: '16px',
+              fontSize: '18px',
               fontWeight: '600',
               cursor: getCurrentValue() ? 'pointer' : 'not-allowed',
-              border: 'none',
               transition: 'background-color 0.2s ease',
-              display: 'inline-block'
+              minWidth: '200px'
             }}
           >
-            {currentStep === QUESTIONS.length - 1 ? 'Terminer' : 'Continuer'}
-          </_Builtin.Block>
+            {isLastStep ? 'Créer mon personnage' : 'Continuer'}
+          </button>
         </_Builtin.BlockContainer>
       </_Builtin.Block>
     </>
