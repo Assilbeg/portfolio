@@ -300,7 +300,7 @@ export default function CreateCharacter() {
                   top: '0'
                 }}
               >
-                {/* Logo */}
+                {/* Logo avec vraie image Webflow */}
                 <_Builtin.Block
                   style={{
                     display: 'flex',
@@ -309,34 +309,15 @@ export default function CreateCharacter() {
                     marginBottom: '16px'
                   }}
                 >
-                  <_Builtin.Block
+                  <_Builtin.Image
+                    src="https://cdn.prod.website-files.com/68405cc01167cb8d805b754b/684ad4fe4a1ff41755e7f57f_PORTFOLIO_LOGO-removebg-preview.png"
+                    alt="Portfolio Logo"
                     style={{
-                      width: '32px',
                       height: '32px',
-                      backgroundColor: '#FF6B35',
-                      borderRadius: '6px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white',
-                      fontFamily: 'Decalotype, system-ui, sans-serif',
-                      fontWeight: 'bold',
-                      fontSize: '14px'
+                      width: 'auto',
+                      objectFit: 'contain'
                     }}
-                  >
-                    P
-                  </_Builtin.Block>
-                  <_Builtin.Block
-                    style={{
-                      fontFamily: 'Decalotype, system-ui, sans-serif',
-                      fontSize: '1.2rem',
-                      fontWeight: 'bold',
-                      color: '#333',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    PORTFOLIO
-                  </_Builtin.Block>
+                  />
                 </_Builtin.Block>
 
                 {/* Back button - sous le logo */}

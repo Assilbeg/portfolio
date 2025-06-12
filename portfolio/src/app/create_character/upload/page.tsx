@@ -2,7 +2,6 @@
 
 import React, { useState, useRef } from 'react';
 import * as _Builtin from "../../../devlink/_Builtin";
-import * as _Form from "../../../devlink/_Builtin/Form";
 import { GlobalStyles } from "../../../devlink";
 
 interface UploadedFile {
@@ -133,7 +132,7 @@ export default function UploadPhotos() {
                   top: '0'
                 }}
               >
-                {/* Logo */}
+                {/* Logo avec vraie image Webflow */}
                 <_Builtin.Block
                   style={{
                     display: 'flex',
@@ -142,34 +141,15 @@ export default function UploadPhotos() {
                     marginBottom: '16px'
                   }}
                 >
-                  <_Builtin.Block
+                  <_Builtin.Image
+                    src="https://cdn.prod.website-files.com/68405cc01167cb8d805b754b/684ad4fe4a1ff41755e7f57f_PORTFOLIO_LOGO-removebg-preview.png"
+                    alt="Portfolio Logo"
                     style={{
-                      width: '32px',
                       height: '32px',
-                      backgroundColor: '#FF6B35',
-                      borderRadius: '6px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: 'white',
-                      fontFamily: 'Decalotype, system-ui, sans-serif',
-                      fontWeight: 'bold',
-                      fontSize: '14px'
+                      width: 'auto',
+                      objectFit: 'contain'
                     }}
-                  >
-                    P
-                  </_Builtin.Block>
-                  <_Builtin.Block
-                    style={{
-                      fontFamily: 'Decalotype, system-ui, sans-serif',
-                      fontSize: '1.2rem',
-                      fontWeight: 'bold',
-                      color: '#333',
-                      textTransform: 'uppercase'
-                    }}
-                  >
-                    PORTFOLIO
-                  </_Builtin.Block>
+                  />
                 </_Builtin.Block>
 
                 {/* Back button avec composant Webflow */}
@@ -304,7 +284,7 @@ export default function UploadPhotos() {
                 </_Builtin.Block>
 
                 {/* Upload area avec composants Webflow */}
-                <_Form.FormFileUploadWrapper
+                <_Builtin.Block
                   style={{
                     border: `2px dashed ${isDragOver ? '#FF6B35' : '#ddd'}`,
                     borderRadius: '12px',
@@ -320,53 +300,52 @@ export default function UploadPhotos() {
                   onDragLeave={handleDragLeave}
                   onClick={handleUploadClick}
                 >
-                  <_Form.FormFileUploadDefault>
-                    <_Builtin.Block
-                      style={{
-                        fontSize: '24px',
-                        marginBottom: '12px'
-                      }}
-                    >
-                      ⬆
-                    </_Builtin.Block>
-                    <_Form.FormFileUploadLabel
-                      style={{
-                        fontFamily: 'Decalotype, system-ui, sans-serif',
-                        fontSize: '18px',
-                        fontWeight: 'bold',
-                        color: '#FF6B35',
-                        marginBottom: '8px',
-                        textTransform: 'uppercase',
-                        display: 'block'
-                      }}
-                    >
-                      Télécharger des fichiers
-                    </_Form.FormFileUploadLabel>
-                    <_Form.FormFileUploadText
-                      style={{
-                        fontFamily: 'OpenSauceOne, system-ui, sans-serif',
-                        fontSize: '12px',
-                        color: '#999',
-                        display: 'block',
-                        marginBottom: '4px'
-                      }}
-                    >
-                      or drag and drop your photos
-                    </_Form.FormFileUploadText>
-                    <_Form.FormFileUploadInfo
-                      style={{
-                        fontFamily: 'OpenSauceOne, system-ui, sans-serif',
-                        fontSize: '12px',
-                        color: '#999'
-                      }}
-                    >
-                      PNG, JPG, HEIC, WEBP jusqu&apos;à 120MB
-                    </_Form.FormFileUploadInfo>
-                  </_Form.FormFileUploadDefault>
-                </_Form.FormFileUploadWrapper>
+                  <_Builtin.Block
+                    style={{
+                      fontSize: '24px',
+                      marginBottom: '12px'
+                    }}
+                  >
+                    ⬆
+                  </_Builtin.Block>
+                  <_Builtin.Block
+                    style={{
+                      fontFamily: 'Decalotype, system-ui, sans-serif',
+                      fontSize: '18px',
+                      fontWeight: 'bold',
+                      color: '#FF6B35',
+                      marginBottom: '8px',
+                      textTransform: 'uppercase',
+                      display: 'block'
+                    }}
+                  >
+                    Télécharger des fichiers
+                  </_Builtin.Block>
+                  <_Builtin.Block
+                    style={{
+                      fontFamily: 'OpenSauceOne, system-ui, sans-serif',
+                      fontSize: '12px',
+                      color: '#999',
+                      display: 'block',
+                      marginBottom: '4px'
+                    }}
+                  >
+                    or drag and drop your photos
+                  </_Builtin.Block>
+                  <_Builtin.Block
+                    style={{
+                      fontFamily: 'OpenSauceOne, system-ui, sans-serif',
+                      fontSize: '12px',
+                      color: '#999'
+                    }}
+                  >
+                    PNG, JPG, HEIC, WEBP jusqu&apos;à 120MB
+                  </_Builtin.Block>
+                </_Builtin.Block>
 
-                <_Form.FormFileUploadInput
+                <input
                   ref={fileInputRef}
+                  type="file"
                   multiple
                   accept="image/*"
                   onChange={handleFileInputChange}
@@ -964,7 +943,8 @@ export default function UploadPhotos() {
             backgroundColor: '#FAFAFA'
           }}
         >
-          <_Form.FormButton
+          <_Builtin.Link
+            button={true}
             onClick={handleContinue}
             disabled={uploadedFiles.length === 0}
             style={{
@@ -983,7 +963,7 @@ export default function UploadPhotos() {
             }}
           >
             Continuer
-          </_Form.FormButton>
+          </_Builtin.Link>
         </_Builtin.Block>
       </_Builtin.Block>
     </>
