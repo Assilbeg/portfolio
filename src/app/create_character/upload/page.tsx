@@ -863,8 +863,7 @@ export default function UploadPhotos() {
         >
           <_Builtin.Link
             button={true}
-            onClick={handleContinue}
-            disabled={uploadedFiles.length === 0}
+            onClick={uploadedFiles.length > 0 ? handleContinue : undefined}
             style={{
               backgroundColor: uploadedFiles.length > 0 ? '#FF6B35' : '#ccc',
               color: 'white',
@@ -877,7 +876,8 @@ export default function UploadPhotos() {
               transition: 'background-color 0.2s ease',
               minWidth: '200px',
               fontFamily: 'Decalotype, system-ui, sans-serif',
-              textTransform: 'uppercase'
+              textTransform: 'uppercase',
+              pointerEvents: uploadedFiles.length > 0 ? 'auto' : 'none'
             }}
           >
             Continuer
