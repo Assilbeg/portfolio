@@ -33,7 +33,7 @@ const QUESTIONS: Question[] = [
     title: 'Quel est votre sexe ?',
     subtitle: 'Nous aimerions en savoir plus sur vous ! Aidez-nous à créer des photos parfaites qui vous ressemblent.',
     options: [
-      { value: 'male', label: "L&apos;homme", icon: '♂' },
+      { value: 'male', label: "Homme", icon: '♂' },
       { value: 'female', label: 'Femme', icon: '♀' },
       { value: 'non-binary', label: 'Non Binaire', icon: '⚧' }
     ]
@@ -229,9 +229,10 @@ export default function CreateCharacter() {
             tag="span"
             style={{
               fontSize: '16px',
-              fontWeight: '500',
+              fontWeight: '400',
               color: '#333',
-              verticalAlign: 'middle'
+              verticalAlign: 'middle',
+              fontFamily: 'OpenSauceOne, system-ui, sans-serif'
             }}
           >
             {option.label}
@@ -248,68 +249,22 @@ export default function CreateCharacter() {
         style={{
           minHeight: '100vh',
           backgroundColor: '#FAFAFA',
-          fontFamily: 'system-ui, -apple-system, sans-serif'
+          fontFamily: 'OpenSauceOne, system-ui, -apple-system, sans-serif'
         }}
       >
-        {/* Header with progress */}
+        {/* Header with progress bar at top */}
         <_Builtin.Block
           style={{
-            padding: '20px',
             backgroundColor: '#FFFFFF',
             borderBottom: '1px solid #e0e0e0'
           }}
         >
-          <_Builtin.BlockContainer
-            style={{
-              maxWidth: '800px',
-              margin: '0 auto',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'space-between'
-            }}
-          >
-            {/* Back button */}
-            <_Builtin.Block
-              onClick={handleBack}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                cursor: currentStep > 0 ? 'pointer' : 'default',
-                opacity: currentStep > 0 ? 1 : 0.5,
-                color: '#666'
-              }}
-            >
-              <span>←</span>
-              <span>Retour</span>
-            </_Builtin.Block>
-
-            {/* Progress indicator */}
-            <_Builtin.Block
-              style={{
-                width: '40px',
-                height: '40px',
-                borderRadius: '50%',
-                backgroundColor: '#FF6B35',
-                color: 'white',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontWeight: 'bold'
-              }}
-            >
-              {currentStep + 1}
-            </_Builtin.Block>
-          </_Builtin.BlockContainer>
-
-          {/* Progress bar */}
+          {/* Progress bar - tout en haut */}
           <_Builtin.Block
             style={{
               width: '100%',
               height: '4px',
               backgroundColor: '#e0e0e0',
-              marginTop: '16px',
-              borderRadius: '2px',
               overflow: 'hidden'
             }}
           >
@@ -321,6 +276,116 @@ export default function CreateCharacter() {
                 transition: 'width 0.3s ease'
               }}
             />
+          </_Builtin.Block>
+
+          {/* Header content */}
+          <_Builtin.Block
+            style={{
+              padding: '20px',
+              position: 'relative'
+            }}
+          >
+            <_Builtin.BlockContainer
+              style={{
+                maxWidth: '800px',
+                margin: '0 auto',
+                position: 'relative'
+              }}
+            >
+              {/* Logo et bouton retour à gauche */}
+              <_Builtin.Block
+                style={{
+                  position: 'absolute',
+                  left: '0',
+                  top: '0'
+                }}
+              >
+                {/* Logo */}
+                <_Builtin.Block
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    marginBottom: '16px'
+                  }}
+                >
+                  <_Builtin.Block
+                    style={{
+                      width: '32px',
+                      height: '32px',
+                      backgroundColor: '#FF6B35',
+                      borderRadius: '6px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: 'white',
+                      fontFamily: 'Decalotype, system-ui, sans-serif',
+                      fontWeight: 'bold',
+                      fontSize: '14px'
+                    }}
+                  >
+                    P
+                  </_Builtin.Block>
+                  <_Builtin.Block
+                    style={{
+                      fontFamily: 'Decalotype, system-ui, sans-serif',
+                      fontSize: '1.2rem',
+                      fontWeight: 'bold',
+                      color: '#333',
+                      textTransform: 'uppercase'
+                    }}
+                  >
+                    PORTFOLIO
+                  </_Builtin.Block>
+                </_Builtin.Block>
+
+                {/* Back button - sous le logo */}
+                <_Builtin.Block
+                  onClick={handleBack}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    cursor: currentStep > 0 ? 'pointer' : 'default',
+                    opacity: currentStep > 0 ? 1 : 0.5,
+                    color: '#666',
+                    fontFamily: 'OpenSauceOne, system-ui, sans-serif',
+                    fontSize: '14px'
+                  }}
+                >
+                  <span>←</span>
+                  <span>Retour</span>
+                </_Builtin.Block>
+              </_Builtin.Block>
+
+              {/* Progress indicator - centré */}
+              <_Builtin.Block
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  height: '80px'
+                }}
+              >
+                <_Builtin.Block
+                  style={{
+                    width: '48px',
+                    height: '48px',
+                    borderRadius: '50%',
+                    backgroundColor: '#FF6B35',
+                    color: 'white',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontWeight: 'bold',
+                    fontFamily: 'Decalotype, system-ui, sans-serif',
+                    fontSize: '18px'
+                  }}
+                >
+                  {currentStep + 1}
+                </_Builtin.Block>
+              </_Builtin.Block>
+            </_Builtin.BlockContainer>
           </_Builtin.Block>
         </_Builtin.Block>
 
@@ -337,20 +402,23 @@ export default function CreateCharacter() {
           <_Builtin.Block
             tag="h1"
             style={{
+              fontFamily: 'Decalotype, system-ui, sans-serif',
               fontSize: '32px',
               fontWeight: 'bold',
               color: '#333',
               marginBottom: '16px',
-              lineHeight: '1.2'
+              lineHeight: '1.2',
+              textTransform: 'uppercase'
             }}
           >
-            {currentQuestion.title}
+            {currentQuestion.title.toUpperCase()}
           </_Builtin.Block>
 
           {/* Question subtitle */}
           <_Builtin.Block
             tag="p"
             style={{
+              fontFamily: 'OpenSauceOne, system-ui, sans-serif',
               fontSize: '18px',
               color: '#666',
               marginBottom: '40px',
@@ -387,10 +455,12 @@ export default function CreateCharacter() {
               fontWeight: '600',
               cursor: getCurrentValue() ? 'pointer' : 'not-allowed',
               transition: 'background-color 0.2s ease',
-              minWidth: '200px'
+              minWidth: '200px',
+              fontFamily: 'Decalotype, system-ui, sans-serif',
+              textTransform: 'uppercase'
             }}
           >
-            {isLastStep ? 'Créer mon personnage' : 'Continuer'}
+            {isLastStep ? 'CRÉER MON PERSONNAGE' : 'CONTINUER'}
           </button>
         </_Builtin.BlockContainer>
       </_Builtin.Block>

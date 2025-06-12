@@ -67,7 +67,7 @@ export default function Home() {
         style={{
           minHeight: '100vh',
           backgroundColor: '#f8fafc',
-          fontFamily: 'system-ui, -apple-system, sans-serif'
+          fontFamily: 'OpenSauceOne, system-ui, -apple-system, sans-serif'
         }}
       >
         {/* Header */}
@@ -82,19 +82,62 @@ export default function Home() {
             style={{
               maxWidth: '1200px',
               margin: '0 auto',
-              padding: '0 1rem'
+              padding: '0 1rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between'
             }}
           >
+            {/* Logo */}
+            <_Builtin.Block
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.5rem'
+              }}
+            >
+              <_Builtin.Block
+                style={{
+                  width: '40px',
+                  height: '40px',
+                  backgroundColor: '#3b82f6',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'white',
+                  fontFamily: 'Decalotype, system-ui, sans-serif',
+                  fontWeight: 'bold',
+                  fontSize: '18px'
+                }}
+              >
+                P
+              </_Builtin.Block>
+              <_Builtin.Block
+                style={{
+                  fontFamily: 'Decalotype, system-ui, sans-serif',
+                  fontSize: '1.5rem',
+                  fontWeight: 'bold',
+                  color: '#1e293b',
+                  textTransform: 'uppercase'
+                }}
+              >
+                PORTFOLIO
+              </_Builtin.Block>
+            </_Builtin.Block>
+
             <_Builtin.Block
               tag="h1"
               style={{
+                fontFamily: 'Decalotype, system-ui, sans-serif',
                 fontSize: '2rem',
                 fontWeight: 'bold',
                 color: '#1e293b',
-                margin: 0
+                margin: 0,
+                textTransform: 'uppercase'
               }}
             >
-              Recherche d&apos;Images Cosmos.so
+              RECHERCHE D&apos;IMAGES COSMOS.SO
             </_Builtin.Block>
           </_Builtin.BlockContainer>
         </_Builtin.Block>
@@ -140,6 +183,7 @@ export default function Home() {
                   fontSize: '16px',
                   outline: 'none',
                   transition: 'border-color 0.2s ease',
+                  fontFamily: 'OpenSauceOne, system-ui, sans-serif'
                 }}
                 onFocus={(e) => {
                   e.target.style.borderColor = '#3b82f6';
@@ -162,10 +206,12 @@ export default function Home() {
                   fontWeight: '600',
                   cursor: isLoading ? 'not-allowed' : 'pointer',
                   transition: 'background-color 0.2s ease',
-                  whiteSpace: 'nowrap'
+                  whiteSpace: 'nowrap',
+                  fontFamily: 'Decalotype, system-ui, sans-serif',
+                  textTransform: 'uppercase'
                 }}
               >
-                {isLoading ? 'Recherche...' : 'Rechercher'}
+                {isLoading ? 'RECHERCHE...' : 'RECHERCHER'}
               </button>
             </_Builtin.Block>
           </_Builtin.Block>
@@ -181,7 +227,13 @@ export default function Home() {
                 marginBottom: '2rem'
               }}
             >
-              <_Builtin.Block style={{ color: '#dc2626', fontWeight: '500' }}>
+              <_Builtin.Block 
+                style={{ 
+                  color: '#dc2626', 
+                  fontWeight: '500',
+                  fontFamily: 'OpenSauceOne, system-ui, sans-serif'
+                }}
+              >
                 {error}
               </_Builtin.Block>
             </_Builtin.Block>
@@ -198,7 +250,12 @@ export default function Home() {
                 color: '#64748b'
               }}
             >
-              <_Builtin.Block style={{ fontSize: '18px' }}>
+              <_Builtin.Block 
+                style={{ 
+                  fontSize: '18px',
+                  fontFamily: 'OpenSauceOne, system-ui, sans-serif'
+                }}
+              >
                 Recherche en cours...
               </_Builtin.Block>
             </_Builtin.Block>
@@ -260,7 +317,8 @@ export default function Home() {
                           style={{
                             color: 'white',
                             fontSize: '14px',
-                            fontWeight: '500'
+                            fontWeight: '500',
+                            fontFamily: 'OpenSauceOne, system-ui, sans-serif'
                           }}
                         >
                           {image.title}
@@ -282,10 +340,22 @@ export default function Home() {
                 color: '#64748b'
               }}
             >
-              <_Builtin.Block style={{ fontSize: '18px', marginBottom: '0.5rem' }}>
-                Aucune image trouvée
+              <_Builtin.Block 
+                style={{ 
+                  fontSize: '18px', 
+                  marginBottom: '0.5rem',
+                  fontFamily: 'Decalotype, system-ui, sans-serif',
+                  textTransform: 'uppercase'
+                }}
+              >
+                AUCUNE IMAGE TROUVÉE
               </_Builtin.Block>
-              <_Builtin.Block style={{ fontSize: '14px' }}>
+              <_Builtin.Block 
+                style={{ 
+                  fontSize: '14px',
+                  fontFamily: 'OpenSauceOne, system-ui, sans-serif'
+                }}
+              >
                 Essayez avec d&apos;autres mots-clés
               </_Builtin.Block>
             </_Builtin.Block>
